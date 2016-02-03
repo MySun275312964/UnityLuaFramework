@@ -1,4 +1,5 @@
 require "System.Wrap"
+
 luanet.load_assembly("UnityEngine")
 
 object			= System.Object
@@ -51,27 +52,6 @@ function print(...)
 	
 	local str = table.concat(t)	
 	Debugger.Log(str)
-end
-
-function class(classname, supername, supermodule)  
-    _G[classname] = {}
-    _G[classname].classname = classname
-    
-    if supermodule ~= nil then
-      require(supermodule)
-    end
-    
-    if _G[supername] ~= nil then      
-      setmetatable(_G[classname], _G[supername])
-      _G[supername].__index = _G[supername]    
-    end    
-
-    _G[classname].New = function(o)
-      local o = o or {}
-      setmetatable(o, _G[classname])
-      _G[classname].__index = _G[classname]
-      return o
-    end
 end
 
 function printf(format, ...)
