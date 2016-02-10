@@ -1939,7 +1939,15 @@ public static class ToLuaExport
             {
                 if (nameSpace == "UnityEngine")
                 {
-                    usingList.Add("UnityEngine");                    
+                    usingList.Add("UnityEngine");
+                }
+                else if (nameSpace == "UnityEngine.UI")
+                {
+                    usingList.Add("UnityEngine.UI");
+                }
+                else if (nameSpace == "UnityEngine.EventSystems")
+                {
+                    usingList.Add("UnityEngine.EventSystems");
                 }
 
                 if (str == "UnityEngine.Object")
@@ -2847,7 +2855,9 @@ public static class ToLuaExport
     {
         Type[] gArgs = type.GetGenericArguments();
         string typeName = type.Name;
-        string pureTypeName = typeName.Substring(0, typeName.IndexOf('`'));
+        var assemblySeperatorPosition = typeName.IndexOf('`');  // maybe has no `
+        string pureTypeName = assemblySeperatorPosition != -1
+            ? typeName.Substring(0, assemblySeperatorPosition) : typeName;
         pureTypeName = _C(pureTypeName);
 
         return pureTypeName + "_" + string.Join("_", GetGenericLibName(gArgs));
