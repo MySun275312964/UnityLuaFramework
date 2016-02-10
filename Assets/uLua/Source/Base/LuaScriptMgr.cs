@@ -12,10 +12,14 @@ using SimpleFramework;
 
 public class LuaScriptMgr
 {
+    private static LuaScriptMgr _instance;
     public static LuaScriptMgr Instance
     {
-        get;
-        private set;
+        get
+        {
+            if(_instance == null) _instance = new LuaScriptMgr();
+            return _instance;
+        }
     }
 
     public LuaState lua;
@@ -182,7 +186,6 @@ public class LuaScriptMgr
 
     public LuaScriptMgr()
     {
-        Instance = this;
         LuaStatic.Load = Loader;
         lua = new LuaState();
         _translator = lua.GetTranslator();
@@ -521,7 +524,7 @@ public class LuaScriptMgr
 
     public void Destroy()
     {        
-        Instance = null;
+        _instance = null;
         SafeUnRef(ref enumMetaRef);
         SafeUnRef(ref typeMetaRef);
         SafeUnRef(ref delegateMetaRef);

@@ -1,13 +1,3 @@
-
---ZeroBrane的安装路径
-ZBS = "C:/ZeroBrane/"
---LuaPath
-LuaPath = "C:/Users/Administrator/Desktop/PrueLuaFrameworkForUnity/Assets/Lua"
-package.path = package.path..";./?.lua;"..ZBS.."lualibs/?/?.lua;"..ZBS.."lualibs/?.lua;"..LuaPath.."?.lua;"
-
---require("mobdebug").start()
-
-
 require "System.Wrap"
 
 luanet.load_assembly("UnityEngine")
