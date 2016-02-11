@@ -8,10 +8,10 @@
 
 2 先阶段修改的部分文件主要有
   CS：
-    LuaScriptMgr
-    LuaBehaviour
+    LuaScriptMgr.cs
+    LuaBehaviour.cs
   Lua：
-    System/class
+    System/class.lua
     增加Framework/MessageCenter.lua（为了解耦的lua单例类）和Framework/LuaClassSimple.lua（基础标准lua类写法）
 
 3 快速入门：封装出Lua类的概念。部分实现继承，多态性，和封装3大特性。主要请看一下3个文件
