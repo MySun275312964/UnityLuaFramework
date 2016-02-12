@@ -25,11 +25,15 @@ function class(className, superName, superModulePath)
   end
   
   if _G[className] ~= nil then
+    if _G[className].className == nil or _G[className].isLuaClass == nil then
+      Debugger.LogError("Class name has been in the global,Please change the class name")
+    end
     return
   end
   
   _G[className] = {}
   _G[className].className = className
+  _G[className].isLuaClass = true
     
   if _G[superName] ~= nil then      
     setmetatable(_G[className], _G[superName])
