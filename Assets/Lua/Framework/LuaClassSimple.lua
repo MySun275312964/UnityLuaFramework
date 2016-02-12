@@ -14,4 +14,5 @@ end
 
 function LuaClassSimple:OnDestory()
   MessageCenter:GetInstance():LeaveArea(1, self)
+  self = nil
 end
