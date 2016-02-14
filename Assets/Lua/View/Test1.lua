@@ -2,16 +2,22 @@ require "Framework.MessageCenter"
 
 class("Test1")
 
-function Test1:Awake(csInstance)
-  self.unityInstance = csInstance
+function Test1:Awake()
   self.areaCode = 1
+  self.btn1 = self.unityInstance.transforms[0]:GetComponent('Button')
   MessageCenter:GetInstance():JoinArea( self.areaCode, self)
 end
 
 function Test1:Start()
-  MessageCenter:GetInstance():SendMessage(2)
+  self.btn1.onClick:AddListener(Click1)
 end
 
-function Test1:OnMessage(head, content)
-  print("Test1Message")
+function Click1()
+  MessageCenter:GetInstance():SendMessage(1, 11)
 end
+
+
+function Test1:OnMessage(head, content)
+  
+end
+
