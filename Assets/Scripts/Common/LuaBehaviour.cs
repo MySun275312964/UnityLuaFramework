@@ -15,10 +15,13 @@ namespace SimpleFramework
         public string modulePath;
         //对应的Lua实例的名字
         public string luaClassName;
+        public List<Transform> transforms;
         //对应的Lua实例的Table
         public object luaInstance;
 
         protected static bool initialize = false;
+
+        
 
         private void Awake()
         {
@@ -28,9 +31,10 @@ namespace SimpleFramework
             {
                 luaInstance = result[0];
             }
-            CallLuaMethod("Awake", this);
+            CallLuaMethod("InitLuaClass", this, transform);
+            CallLuaMethod("Awake");
         }
-
+       
         private void Start()
         {
             CallLuaMethod("Start");
