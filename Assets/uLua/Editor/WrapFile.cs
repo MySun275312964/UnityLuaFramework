@@ -32,7 +32,7 @@ public static class WrapFile {
         _GT(typeof(PanelManager)),
         _GT(typeof(TimerManager)),
         _GT(typeof(LuaHelper)),
-        _GT(typeof(LuaBehaviour)), 
+        _GT(typeof(LuaBehaviour)).SetBaseName("UnityEngine.Behaviour"), 
         _GT(typeof(RectTransform)),
 
         _GT(typeof(DelegateFactory)),
