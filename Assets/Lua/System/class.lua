@@ -34,13 +34,18 @@ function class(className, superName, superModulePath)
   _G[className] = {}
   _G[className].className = className
   _G[className].isLuaClass = true
+  _G[className].InitLuaClass = function(luaTable, csInstance, transform)
+    luaTable.unityInstance = csInstance
+    luaTable.transform = transform
+  end
+    
     
   if _G[superName] ~= nil then      
     setmetatable(_G[className], _G[superName])
     _G[superName].__index = _G[superName]    
   end  
   
-   _G[className].New = function(o)
+   _G[className].New = function()
     local o = o or {}
     setmetatable(o, _G[className])
     _G[className].__index = _G[className]
