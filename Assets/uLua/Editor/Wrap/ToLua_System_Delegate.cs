@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class ToLua_System_Delegate
-{    
+{
     [NoToLuaAttribute]
     public static string op_AdditionDefined =
 @"        LuaScriptMgr.CheckArgsCount(L, 2);
         Delegate arg0 = LuaScriptMgr.GetLuaObject(L, 1) as Delegate;
         
         LuaTypes type = LuaDLL.lua_type(L, 2);
-
         if (type != LuaTypes.LUA_TFUNCTION)
         {
             Delegate arg1 = LuaScriptMgr.GetLuaObject(L, 2) as Delegate;            
