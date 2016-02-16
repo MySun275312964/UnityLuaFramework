@@ -31,13 +31,13 @@ function MessageCenter:LeaveArea(areaCode, luaTable)
   end 
 end
 
-function MessageCenter:SendMessage(areaCode, head, content)
+function MessageCenter:SendMessage(areaCode, head, content, callbackFunc, sender, ...)
   for k1,v1 in pairs(self.areaGroups) do
     if k1 == areaCode then
       --print(#self.areaGroups[k1])
       for k2,v2 in pairs(self.areaGroups[k1]) do
         if v2.OnMessage ~= nil then
-          v2:OnMessage(head, content)
+          v2:OnMessage(head, content, callbackFunc, sender, ...)
         end
       end
       return
