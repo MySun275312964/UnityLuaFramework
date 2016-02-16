@@ -1,7 +1,7 @@
 # UnityLuaFramework
 2016/2/11 预览测试版更新
 
-使用方法：运行根目录下Test场景
+使用方法：生成wrap，运行根目录下Test场景
 
 说明：  
 1 框架基于jarjin/SimpleFramework_UGUI进行部分修改（地址https://github.com/jarjin/SimpleFramework_UGUI/）  
