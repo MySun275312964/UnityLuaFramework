@@ -16,6 +16,7 @@ end
 
 function Click1()
   MessageCenter:GetInstance():SendMessage(1, 11)
+  print("click")
 end
 
 
