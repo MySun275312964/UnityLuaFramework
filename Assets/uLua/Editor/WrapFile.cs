@@ -36,9 +36,6 @@ public static class WrapFile {
         _GT(typeof(RectTransform)),
 
         _GT(typeof(DelegateFactory)),
-        _GT(typeof(TestLuaDelegate)),
-        _GT(typeof(TestDelegateListener)),
-        _GT(typeof(TestEventListener)),
         _GT(typeof(Button)),   
         _GT(typeof(Button.ButtonClickedEvent)),
         _GT(typeof(UnityEventBase)),
